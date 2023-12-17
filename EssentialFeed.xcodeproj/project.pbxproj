@@ -124,7 +124,6 @@
 		CEFEC46E2B2EE5B3002D809D /* EssentialFeed */ = {
 			isa = PBXGroup;
 			children = (
-				CE5627F42B2EF20100CF3B17 /* FeedCache */,
 				CE5627F32B2EED9700CF3B17 /* Info.plist */,
 				CEFEC46F2B2EE5B3002D809D /* EssentialFeedApp.swift */,
 				CEFEC4712B2EE5B3002D809D /* ContentView.swift */,
@@ -148,8 +147,9 @@
 		CEFEC4832B2EE5C6002D809D /* EssentialFeedTests */ = {
 			isa = PBXGroup;
 			children = (
-				CEFEC49C2B2EE687002D809D /* FeedApi */,
 				CEFEC4992B2EE631002D809D /* Helper */,
+				CE5627F42B2EF20100CF3B17 /* FeedCache */,
+				CEFEC49C2B2EE687002D809D /* FeedApi */,
 				CEFEC4842B2EE5C6002D809D /* EssentialFeedTests.swift */,
 			);
 			path = EssentialFeedTests;
