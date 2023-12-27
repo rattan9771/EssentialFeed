@@ -87,7 +87,7 @@ final class LoadFeedFromRemoteUseCaseTests: XCTestCase {
         samples.enumerated().forEach { (index , code) in
 
             
-            expect(sut, toCompleteWithResult: failure(.invalidPath)) {
+            expect(sut, toCompleteWithResult: failure(.invalidData)) {
                 
                 let json = makeItemJSON([])
                 
@@ -102,7 +102,7 @@ final class LoadFeedFromRemoteUseCaseTests: XCTestCase {
         
         let (sut , client) = makeSUT()
         
-        expect(sut, toCompleteWithResult: failure(.invalidPath)) {
+        expect(sut, toCompleteWithResult: failure(.invalidData)) {
             let invalidJson = "Invalid data".data(using: .utf8)!
             
             client.complete(withStatusCode : 200, data : invalidJson)
