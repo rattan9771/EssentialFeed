@@ -17,8 +17,6 @@ final class CacheFeedUseCaseTests: XCTestCase {
 
     func testExample() throws {}
 
-   
-    
     func test_init_doesNotMessageStoreUponCreation() {
         let (_ , store) = makeSUT()
         XCTAssertEqual(store.receivedMessages, [])
@@ -43,13 +41,10 @@ final class CacheFeedUseCaseTests: XCTestCase {
         XCTAssertEqual(store.receivedMessages, [.deletedCachedFeed])
     }
     
-   
-    
     func test_save_requestNewCacheInsetionWithTimeStampOnSuccessfulDeletion() {
         let timestamp = Date()
         let feed = uniqueImageFeed()
        
-        
         let (sut , store) = makeSUT(currentDate: { timestamp })
         
         sut.save(feed.models){ _ in }
