@@ -156,7 +156,6 @@
 		CEFEC46E2B2EE5B3002D809D /* EssentialFeed */ = {
 			isa = PBXGroup;
 			children = (
-				CEE449CA2B383794006C561B /* FeedCache */,
 				CE5627F32B2EED9700CF3B17 /* Info.plist */,
 				CEFEC46F2B2EE5B3002D809D /* EssentialFeedApp.swift */,
 				CEFEC4712B2EE5B3002D809D /* ContentView.swift */,
@@ -165,6 +164,7 @@
 				CEFEC4762B2EE5B3002D809D /* Preview Content */,
 				CEFEC4902B2EE611002D809D /* Feed Api */,
 				CEFEC48B2B2EE603002D809D /* FeedFeature */,
+				CEE449CA2B383794006C561B /* FeedCache */,
 			);
 			path = EssentialFeed;
 			sourceTree = "<group>";

@@ -12,9 +12,12 @@ import EssentialFeed
     
     typealias DeletionCompletion = (Error?) -> Void
     typealias InsertionCompletion = (Error?) -> Void
+     typealias RetrivalCompletion = (Error?) -> Void
     
     private var deletionCompletion =  [DeletionCompletion]()
     private var insertionCompletion = [InsertionCompletion]()
+     private var retrivalCompletion = [RetrivalCompletion]()
+     
     enum ReceivedMessage : Equatable {
         case deletedCachedFeed
         case insert([LocalFeedImage] , Date)
@@ -50,7 +53,13 @@ import EssentialFeed
         insertionCompletion[index](nil)
     }
      
-     func retrieve() {
+     func retrieve(completion : @escaping RetrivalCompletion) {
+         retrivalCompletion.append(completion)
          receivedMessages.append(.retrieve)
+     }
+     
+     func completeRetrival(with error : Error, at index : Int = 0 ) {
+        
+         retrivalCompletion[index](error)
      }
 }
