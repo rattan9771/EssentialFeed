@@ -62,4 +62,8 @@ import EssentialFeed
         
          retrivalCompletion[index](error)
      }
+     
+     func completeRetrivalWithEmptyCache(at index : Int = 0) {
+         retrivalCompletion[index](nil)
+     }
 }
