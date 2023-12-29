@@ -11,6 +11,7 @@
 		CE5AB89E2B3C405700DECE79 /* RemoteFeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5AB89D2B3C405700DECE79 /* RemoteFeedItem.swift */; };
 		CE5AB8A02B3C410900DECE79 /* LocalFeedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5AB89F2B3C410900DECE79 /* LocalFeedImage.swift */; };
 		CE7EF3BF2B3DEB13005367B0 /* LoadFeedFromCacheUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7EF3BE2B3DEB13005367B0 /* LoadFeedFromCacheUseCaseTest.swift */; };
+		CEAA02992B3E9C0C003045BB /* FeedStoreSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAA02982B3E9C0C003045BB /* FeedStoreSpy.swift */; };
 		CEE449CC2B3837A9006C561B /* LocalFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE449CB2B3837A9006C561B /* LocalFeedLoader.swift */; };
 		CEE449CE2B383853006C561B /* FeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE449CD2B383853006C561B /* FeedStore.swift */; };
 		CEFEC4702B2EE5B3002D809D /* EssentialFeedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFEC46F2B2EE5B3002D809D /* EssentialFeedApp.swift */; };
@@ -54,6 +55,7 @@
 		CE5AB89D2B3C405700DECE79 /* RemoteFeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedItem.swift; sourceTree = "<group>"; };
 		CE5AB89F2B3C410900DECE79 /* LocalFeedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFeedImage.swift; sourceTree = "<group>"; };
 		CE7EF3BE2B3DEB13005367B0 /* LoadFeedFromCacheUseCaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadFeedFromCacheUseCaseTest.swift; sourceTree = "<group>"; };
+		CEAA02982B3E9C0C003045BB /* FeedStoreSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStoreSpy.swift; sourceTree = "<group>"; };
 		CEE449CB2B3837A9006C561B /* LocalFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFeedLoader.swift; sourceTree = "<group>"; };
 		CEE449CD2B383853006C561B /* FeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStore.swift; sourceTree = "<group>"; };
 		CEFEC46C2B2EE5B3002D809D /* EssentialFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EssentialFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,10 +108,19 @@
 		CE5627F42B2EF20100CF3B17 /* FeedCache */ = {
 			isa = PBXGroup;
 			children = (
+				CEAA029A2B3E9C1B003045BB /* Helper */,
 				CE5627F52B2EF22800CF3B17 /* CacheFeedUseCaseTests.swift */,
 				CE7EF3BE2B3DEB13005367B0 /* LoadFeedFromCacheUseCaseTest.swift */,
 			);
 			path = FeedCache;
+			sourceTree = "<group>";
+		};
+		CEAA029A2B3E9C1B003045BB /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				CEAA02982B3E9C0C003045BB /* FeedStoreSpy.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		CEE449CA2B383794006C561B /* FeedCache */ = {
@@ -169,7 +180,7 @@
 		CEFEC4832B2EE5C6002D809D /* EssentialFeedTests */ = {
 			isa = PBXGroup;
 			children = (
-				CEFEC4992B2EE631002D809D /* Helper */,
+				CEFEC4992B2EE631002D809D /* Helpers */,
 				CE5627F42B2EF20100CF3B17 /* FeedCache */,
 				CEFEC49C2B2EE687002D809D /* FeedApi */,
 				CEFEC4842B2EE5C6002D809D /* EssentialFeedTests.swift */,
@@ -198,12 +209,12 @@
 			path = "Feed Api";
 			sourceTree = "<group>";
 		};
-		CEFEC4992B2EE631002D809D /* Helper */ = {
+		CEFEC4992B2EE631002D809D /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				CEFEC49A2B2EE65E002D809D /* XCTTest + MemoryLeak.swift */,
 			);
-			path = Helper;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		CEFEC49C2B2EE687002D809D /* FeedApi */ = {
@@ -374,6 +385,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE7EF3BF2B3DEB13005367B0 /* LoadFeedFromCacheUseCaseTest.swift in Sources */,
+				CEAA02992B3E9C0C003045BB /* FeedStoreSpy.swift in Sources */,
 				CEFEC4852B2EE5C6002D809D /* EssentialFeedTests.swift in Sources */,
 				CEFEC49B2B2EE65E002D809D /* XCTTest + MemoryLeak.swift in Sources */,
 				CEFEC49E2B2EE693002D809D /* LoadFeedFromRemoteUseCaseTests.swift in Sources */,
