@@ -18,6 +18,7 @@ import EssentialFeed
     enum ReceivedMessage : Equatable {
         case deletedCachedFeed
         case insert([LocalFeedImage] , Date)
+        case retrieve
     }
     
     private(set) var receivedMessages = [ReceivedMessage]()
@@ -48,4 +49,8 @@ import EssentialFeed
     func completeInsertionSuccessfully( at index : Int = 0 ) {
         insertionCompletion[index](nil)
     }
+     
+     func retrieve() {
+         receivedMessages.append(.retrieve)
+     }
 }
