@@ -21,20 +21,21 @@ public final class LocalFeedLoader {
     }
     
     public func load(completion : @escaping (LoadResult) -> Void ) {
-        store.retrieve { error in
-            if let error = error {
+        store.retrieve { result in
+            switch result {
+            case let .failure(error):
                 completion(.failure(error))
-            }else {
+            case let .found(feed, _):
+                completion(.success(feed.toModels()))
+            case .empty:
                 completion(.success([]))
             }
         }
     }
     
     public func save(_ feed : [FeedImage] , completion : @escaping (SaveResult) -> Void) {
-        
         store.deleteCachedFeed {[weak self] error in
             guard let self = self else {return}
-            
             if let cacheDeletionError = error {
                 completion(cacheDeletionError)
             }else {
@@ -57,4 +58,12 @@ extension Array where Element == FeedImage {
         return map {LocalFeedImage(id: $0.id, url: $0.url, description: $0.description, location: $0.location)}
     }
 }
+
+extension Array where Element == LocalFeedImage {
+    func toModels() -> [FeedImage] {
+        return map {FeedImage(id: $0.id, url: $0.url, description: $0.description, location: $0.location)}
+    }
+}
+
+
 

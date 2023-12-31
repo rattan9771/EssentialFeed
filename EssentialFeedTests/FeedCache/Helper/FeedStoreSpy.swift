@@ -8,11 +8,12 @@
 import Foundation
 import EssentialFeed
 
- class FeedStoreSpy : FeedStore {
-    
+class FeedStoreSpy : FeedStore {
+  
+  
     typealias DeletionCompletion = (Error?) -> Void
     typealias InsertionCompletion = (Error?) -> Void
-     typealias RetrivalCompletion = (Error?) -> Void
+    typealias RetrivalCompletion = (RetrieveCachedFeedResult) -> Void
     
     private var deletionCompletion =  [DeletionCompletion]()
     private var insertionCompletion = [InsertionCompletion]()
@@ -53,17 +54,21 @@ import EssentialFeed
         insertionCompletion[index](nil)
     }
      
-     func retrieve(completion : @escaping RetrivalCompletion) {
-         retrivalCompletion.append(completion)
-         receivedMessages.append(.retrieve)
-     }
-     
+    func retrieve(completion: @escaping RetrivalCompletion) {
+        retrivalCompletion.append(completion)
+        receivedMessages.append(.retrieve)
+    }
+    
      func completeRetrival(with error : Error, at index : Int = 0 ) {
-        
-         retrivalCompletion[index](error)
+         retrivalCompletion[index](.failure(error))
      }
      
      func completeRetrivalWithEmptyCache(at index : Int = 0) {
-         retrivalCompletion[index](nil)
+         retrivalCompletion[index](.empty)
+         
+     }
+     
+     func completeRetrival(with feed : [LocalFeedImage], timestamp : Date, at index : Int = 0) {
+         retrivalCompletion[index](.found(feed : feed, timeStamp : timestamp))
      }
 }
