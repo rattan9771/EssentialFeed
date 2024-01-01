@@ -81,6 +81,17 @@ final class ValidateFeedCacheUseTestCases: XCTestCase {
         XCTAssertEqual(store.receivedMessages, [.retrieve, .deletedCachedFeed])
     }
     
+    func test_validateCache_doesNotDeleteInvalidCacheAfterSUTInstanceHasBeenDeallocated() {
+        let store = FeedStoreSpy()
+        var sut : LocalFeedLoader? = LocalFeedLoader(store: store, currentDate: Date.init)
+        
+        sut?.validateCache()
+        
+        sut = nil
+        store.completeRetrival(with: anyNSError())
+        
+        XCTAssertEqual(store.receivedMessages, [.retrieve])
+    }
     
     //MARK:- Helper
     private func makeSUT(currentDate: (@escaping () -> Date) = Date.init , file: StaticString = #file,line: UInt = #line) -> (sut : LocalFeedLoader, store : FeedStoreSpy) {
