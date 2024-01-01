@@ -152,7 +152,6 @@ final class CacheFeedUseCaseTests: XCTestCase {
     }
     
     private func anyURL() -> URL {
-        
         return URL(string: "https://any-url.com")!
     }
     
