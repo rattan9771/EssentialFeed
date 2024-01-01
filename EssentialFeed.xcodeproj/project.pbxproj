@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE4D75DD2B42A9A300F0AE08 /* ValidateFeedCacheUseTestCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4D75DC2B42A9A300F0AE08 /* ValidateFeedCacheUseTestCases.swift */; };
 		CE5627F62B2EF22800CF3B17 /* CacheFeedUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5627F52B2EF22800CF3B17 /* CacheFeedUseCaseTests.swift */; };
 		CE5AB89E2B3C405700DECE79 /* RemoteFeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5AB89D2B3C405700DECE79 /* RemoteFeedItem.swift */; };
 		CE5AB8A02B3C410900DECE79 /* LocalFeedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5AB89F2B3C410900DECE79 /* LocalFeedImage.swift */; };
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE4D75DC2B42A9A300F0AE08 /* ValidateFeedCacheUseTestCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateFeedCacheUseTestCases.swift; sourceTree = "<group>"; };
 		CE5627F32B2EED9700CF3B17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CE5627F52B2EF22800CF3B17 /* CacheFeedUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheFeedUseCaseTests.swift; sourceTree = "<group>"; };
 		CE5AB89D2B3C405700DECE79 /* RemoteFeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedItem.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				CEAA029A2B3E9C1B003045BB /* Helper */,
 				CE5627F52B2EF22800CF3B17 /* CacheFeedUseCaseTests.swift */,
 				CE7EF3BE2B3DEB13005367B0 /* LoadFeedFromCacheUseCaseTest.swift */,
+				CE4D75DC2B42A9A300F0AE08 /* ValidateFeedCacheUseTestCases.swift */,
 			);
 			path = FeedCache;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				CEAA02992B3E9C0C003045BB /* FeedStoreSpy.swift in Sources */,
 				CEFEC4852B2EE5C6002D809D /* EssentialFeedTests.swift in Sources */,
 				CEFEC49B2B2EE65E002D809D /* XCTTest + MemoryLeak.swift in Sources */,
+				CE4D75DD2B42A9A300F0AE08 /* ValidateFeedCacheUseTestCases.swift in Sources */,
 				CEFEC49E2B2EE693002D809D /* LoadFeedFromRemoteUseCaseTests.swift in Sources */,
 				CE5627F62B2EF22800CF3B17 /* CacheFeedUseCaseTests.swift in Sources */,
 				CEFEC4A02B2EE6C1002D809D /* URLSessionHTTPClientTests.swift in Sources */,
