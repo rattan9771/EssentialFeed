@@ -2,12 +2,11 @@
 //  CodableFeedStoreTests.swift
 //  EssentialFeedTests
 //
-//  Created by Rattan Das on 06/01/24.
+//  Created by Rattan Das on 14/01/24.
 //
 
 import XCTest
 import EssentialFeed
-
 
 final class CodableFeedStoreTests: XCTestCase {
 
@@ -117,12 +116,13 @@ final class CodableFeedStoreTests: XCTestCase {
     }
     
     func test_delete_deliversErrorOnDeletionError() {
-//        let noDeletePermissionURL = cacheDirectory()
-//        let sut = makeSUT(storeURL: noDeletePermissionURL)
-//        
-//        let deletionError = deleteCache(from : sut)
-//        
-//        XCTAssertNotNil(deletionError, "Expected cache deletion to fail")
+        let noDeletePermissionURL = cachesDirectory()
+        let sut = makeSUT(storeURL: noDeletePermissionURL)
+
+        let deletionError = deleteCache(from : sut)
+
+        XCTAssertNotNil(deletionError, "Expected cache deletion to fail")
+        expect(sut, toRetrieve: .empty)
     }
     
     //MARK:- Helper
@@ -133,13 +133,11 @@ final class CodableFeedStoreTests: XCTestCase {
         return sut
     }
     
-    private func cacheDirectory() -> URL {
-        return  URL(fileURLWithPath: "path/to/your/file")
-    }
+    
     
     private func deleteCache(from sut : FeedStore) -> Error? {
         let exp = expectation(description: "wait for cache deletion")
-        var deletionError: Error? = nil
+        var deletionError: Error?
         
         sut.deleteCachedFeed { receivedError in
             deletionError = receivedError
@@ -202,6 +200,10 @@ final class CodableFeedStoreTests: XCTestCase {
     }
     
     private func testSpecificStoreURL() -> URL {
-        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appending(path: "\(type(of: self)).store")
+        return cachesDirectory().appendingPathComponent("\(type(of: self)).store")
+    }
+    
+    private func cachesDirectory() -> URL {
+        return FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
     }
 }
